@@ -1,9 +1,13 @@
+ENV["RAILS_ENV"] = "test"
 require 'minitest/autorun'
 require 'mock_redis'
 require 'absurdity'
 require 'redis'
 require 'mocha'
 require 'turn'
+
+require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+require "rails/test_help"
 
 class MiniTest::Unit::TestCase
 
@@ -14,3 +18,5 @@ class MiniTest::Unit::TestCase
   end
 
 end
+
+Rails.backtrace_cleaner.remove_silencers!
